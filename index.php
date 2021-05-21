@@ -18,8 +18,7 @@ include 'config.php';
 
 if (isset($_GET['url'])) {
 	$url=htmlspecialchars(strip_tags($_GET['url']));
-	$busc=$con->prepare('select * from url where encurtado=:e');
-	$busc->bindValue(':e',$url);
+	$busc=$con->prepare("select * from url where encurtado='{$url}'");
 	$busc->execute();
 
 	if ($busc->rowCount()>0) {
@@ -30,9 +29,7 @@ if (isset($_GET['url'])) {
 			$acessos=$linha['acessos'];
 		}
 		$acessos=$acessos+1;
-		$upd=$con->prepare('update endereco set acessos=:a where url_id=:i');
-		$upd->bindValue(':a',$acessos);
-		$upd->bindValue(':i',$id);
+		$upd=$con->prepare("update endereco set acessos='{$acessos}' where url_id='{$id}'");
 		$upd->execute();
 		echo "<script>window.location='".$link."'</script>";
 	}else{
