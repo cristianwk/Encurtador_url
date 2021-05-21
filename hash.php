@@ -10,7 +10,10 @@ function Gerar($valor){
 	$q=strlen($keys);
 	$q--;
 	$hash=null;
-	for($i=1;$i<=$valor;$i++){$p=rand(0,$q);$hash.=substr($keys,$p,1);}
+	//Mínimo de 5 e máximo de 10 caracteres.
+	for($i=5;$i<=$valor;$i++){
+		$p=rand(0,$q);$hash.=substr($keys,$p,1);
+	}
 	return $hash;
 }
 

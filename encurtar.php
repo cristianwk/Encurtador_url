@@ -13,19 +13,19 @@ if (isset($_POST['url'])) {
 	//echo"<br>url: ".$_POST['url'];
 	$url=htmlspecialchars(strip_tags($_POST['url']));
 	$ip=$_SERVER['REMOTE_ADDR'];
-	$encurtado=Gerar(8);
+	$encurtado=Gerar(10);
 
 	$busc=$con->prepare("select * from url where endereco='{$url}'");
 	$busc->execute();
 	//echo"<br>sql: <pre>";print_r($busc);echo"</pre>";
 
 	if ($busc->rowCount()<1) {
-		$ins=$con->prepare("insert into url(endereco,encurtado,acessos) values('{$url}','{$encurtado}','{NULL}')");
+		//O campo status refere-se ao prazo de validade 
+		$ins=$con->prepare("insert into url(endereco,encurtado,status, acessos) values('{$url}','{$encurtado}','{30}','{NULL}')");
 		$ins->execute();
 //echo"<pre>";print_r($ins);echo"</pre>";
 		if ($ins) {echo"<br>inserindo..";
 			$busc=$con->prepare("select * from url where encurtado='{$encurtado}'");
-			//$busc->bindValue(':e',$encurtado);
 			//echo"<br>busc: <pre>";print_r($busc);echo"</pre>"."<br>encurtado: ".$encurtado;
 			$busc->execute();
 

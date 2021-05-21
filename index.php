@@ -51,7 +51,7 @@ if (isset($_GET['url'])) {
 	body{background:#f8f8f8;margin:0;}
 	input[type='url']{border:1px solid #ddd;padding:6px;width:250px;margin:10px;border-radius:2px;}
 	input[type='submit']{border:none;background:#222;color:#fff;padding:6px;border-radius:2px;}
-	img{width:80px;height:80px;display:none;}
+	img{width:300px;height:150px;display:none;}
 	#status{font-family:arial;font-size:15px;}
 </style>
 <body>
@@ -72,7 +72,7 @@ if (isset($_GET['url'])) {
 		}
 	</script>
 	<form method="post" onsubmit="encurtar();return false;">
-		<input type="url" name="url" id="url" placeholder="Coloque a url que deseja encurtar.." autocomplete="off" /><input type="submit" value=">>" /><br>
+		<input type="url" name="url" id="url" placeholder="Coloque a url que deseja encurtar.." autocomplete="off"/><input type="submit" value=">>" /><br>
 		<img id="img" src="timer.gif" />
 		<div id="status"></div>
 	</form>
