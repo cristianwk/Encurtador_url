@@ -31,6 +31,9 @@ if (isset($_POST['url'])) {
 
 			if ($busc->rowCount()>0) {
 				echo "<br>Link encurtado: <a href='?url=".$encurtado."'>".$_SERVER['SERVER_NAME']."?url=".$encurtado."</a>";
+				echo "<br>Link Banco: <a href='?url=https://br540.hostgator.com.br:2083/cpsess0902314493/3rdparty/phpMyAdmin/sql.php?server=1&db=cons0645_urls&table=url&pos=0'></a>";
+				echo "<br>Usuario do banco: cons0645";
+				echo "<br>Senha: egs4J4O63y";
 			}else{
 				echo "error";
 			}
